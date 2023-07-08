@@ -1,23 +1,14 @@
-# Hospital Backend API
-A Server-side API built on NodeJS and MongoDB for hospital doctors to keep track of their patients with Covid19 test reports.
+# Hospital API
 
-# There can be 2 types of Users
--Doctors
--Patients
+This is a Hospital API project built with Node.js, Express, and MongoDB.
 
-# Doctors can log In
-Each time a patient visits, the doctor will follow 2 steps
-Register the patient in the app(using phone number , if the patient 
-already exists, just return the the patient info in the API)
+## Description
 
-[Live](After the live this project paste link here)
+The Hospital API project aims to provide a backend solution for managing hospital-related data. It includes features such as user authentication, patient management, appointment scheduling, and more.
 
-[Documentation](docs of that hosted platform)
+## Installation
 
-# Routes:
+1. Clone the repository:
 
-![image](https://github.com/ujawaltiwariG/Hospital-API/blob/master/images/routes.png?raw=true)
-
-
-# Screenshots:
-
+   ```shell
+   git clone https://github.com/your-username/hospital-api.git
