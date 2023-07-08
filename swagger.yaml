@@ -1,0 +1,172 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "API Documentation"
+  description: "API documentation for the application."
+
+paths:
+  /doctor/register:
+    post:
+      tags:
+        - Doctor
+      summary: Register a doctor
+      operationId: createDoctor
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          description: Doctor object that needs to be registered
+          required: true
+          schema:
+            $ref: "#/definitions/Doctor"
+      responses:
+        200:
+          description: Doctor registered successfully
+        400:
+          description: Invalid request
+
+  /doctor/login:
+    post:
+      tags:
+        - Doctor
+      summary: Login a doctor
+      operationId: createSession
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          description: Doctor login credentials
+          required: true
+          schema:
+            $ref: "#/definitions/DoctorLogin"
+      responses:
+        200:
+          description: Doctor logged in successfully
+        400:
+          description: Invalid request
+
+  /patient:
+    get:
+      tags:
+        - Patient
+      summary: Get all patients
+      operationId: getAllPatients
+      produces:
+        - application/json
+      responses:
+        200:
+          description: List of all patients
+
+  /patient/register:
+    post:
+      tags:
+        - Patient
+      summary: Register a patient
+      operationId: registerPatient
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          description: Patient object that needs to be registered
+          required: true
+          schema:
+            $ref: "#/definitions/Patient"
+      responses:
+        200:
+          description: Patient registered successfully
+        400:
+          description: Invalid request
+
+  /patient/{id}/create_report:
+    post:
+      tags:
+        - Patient
+      summary: Create a patient report
+      operationId: createPatientReport
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of the patient
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: Report object for the patient
+          required: true
+          schema:
+            $ref: "#/definitions/Report"
+      responses:
+        200:
+          description: Report created successfully
+        400:
+          description: Invalid request
+
+  /patient/{id}/all_reports:
+    get:
+      tags:
+        - Patient
+      summary: Get all reports of a particular patient
+      operationId: getAllReports
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of the patient
+          required: true
+          type: string
+      responses:
+        200:
+          description: List of all reports for the patient
+
+  /report/{status}:
+    get:
+      tags:
+        - Report
+      summary: Get all reports by status
+      operationId: getAllReportsByStatus
+      produces:
+        - application/json
+      parameters:
+        - name: status
+          in: path
+          description: Status of the report
+          required: true
+          type: string
+      responses:
+        200:
+          description: List of reports by status
+
+definitions:
+  Doctor:
+    type: object
+    properties:
+      // Define Doctor properties here
+
+  DoctorLogin:
+    type: object
+    properties:
+      // Define DoctorLogin properties here
+
+  Patient:
+    type: object
+    properties:
+      // Define Patient properties here
+
+  Report:
+    type: object
+    properties:
+      // Define Report properties here
